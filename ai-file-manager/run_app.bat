@@ -58,7 +58,7 @@ echo ===== Khoi tao co so du lieu =====
 set /p db_path=Duong dan co so du lieu (mac dinh ./filemanager.db) 
 if "%db_path%"=="" set db_path=./filemanager.db
 
-python main.py init --db-path="%db_path%"
+python main.py --db-path="%db_path%" init
 if %ERRORLEVEL% neq 0 (
     set ERROR_MSG=Loi khi khoi tao co so du lieu.
     goto error
@@ -69,7 +69,9 @@ goto menu
 :ingest
 cls
 echo ===== Quet va dang ky file =====
-set /p directory=Duong dan thu muc can quet 
+echo LUU Y: Chuc nang nay se dang ky file vao database de co the su dung voi cac chuc nang khac.
+echo.
+set /p directory=Duong dan thu muc can quet (duong dan day du den thu muc chua file) 
 set /p recursive=Quet de quy? (y/n, mac dinh y) 
 set /p dry_run=Che do thu nghiem? (y/n, mac dinh n) 
 set /p db_path=Duong dan co so du lieu (mac dinh ./filemanager.db) 
@@ -78,10 +80,10 @@ if "%db_path%"=="" set db_path=./filemanager.db
 if "%recursive%"=="" set recursive=y
 if "%dry_run%"=="" set dry_run=n
 
-set cmd=python main.py ingest --db-path="%db_path%" "%directory%"
-
-if /i "%recursive%"=="y" set cmd=%cmd% --recursive
-if /i "%dry_run%"=="y" set cmd=%cmd% --dry-run
+set cmd=python main.py --db-path="%db_path%" ingest "%directory%"
+    
+    if /i "%recursive%"=="y" set cmd=%cmd% --recursive
+    if /i "%dry_run%"=="y" set cmd=%cmd% --dry-run
 
 %cmd%
 if %ERRORLEVEL% neq 0 (
@@ -103,7 +105,7 @@ if "%rules_file%"=="" set rules_file=./rules/example_rules.yaml
 if "%db_path%"=="" set db_path=./filemanager.db
 if "%dry_run%"=="" set dry_run=n
 
-set cmd=python main.py organize --db-path="%db_path%" --rules="%rules_file%"
+set cmd=python main.py --db-path="%db_path%" organize --rules="%rules_file%"
 
 if not "%source%"=="" set cmd=%cmd% --source="%source%"
 if /i "%dry_run%"=="y" set cmd=%cmd% --dry-run
@@ -129,15 +131,15 @@ if "%db_path%"=="" set db_path=./filemanager.db
 
 if "%search_choice%"=="1" (
     set /p filename=Ten file can tim 
-    python main.py search --db-path="%db_path%" --filename="%filename%"
+    python main.py --db-path="%db_path%" search --filename="%filename%"
 ) else if "%search_choice%"=="2" (
     set /p mime_type=Loai MIME can tim 
-    python main.py search --db-path="%db_path%" --mime-type="%mime_type%"
+    python main.py --db-path="%db_path%" search --mime-type="%mime_type%"
 ) else if "%search_choice%"=="3" (
     set /p tags=Cac the can tim (phan cach bang dau phay) 
-    python main.py search --db-path="%db_path%" --tags="%tags%"
+    python main.py --db-path="%db_path%" search --tag="%tags%"
 ) else if "%search_choice%"=="4" (
-    python main.py search --db-path="%db_path%" --duplicates
+    python main.py --db-path="%db_path%" search --duplicates
 ) else if "%search_choice%"=="5" (
     set /p filename=Ten file (de trong neu khong can) 
     set /p extension=Phan mo rong (de trong neu khong can) 
@@ -148,12 +150,12 @@ if "%search_choice%"=="1" (
     set /p created_after=Tao sau ngay (YYYY-MM-DD, de trong neu khong can) 
     set /p created_before=Tao truoc ngay (YYYY-MM-DD, de trong neu khong can) 
     
-    set cmd=python main.py search --db-path="%db_path%"
+    set cmd=python main.py --db-path="%db_path%" search
     
     if not "%filename%"=="" set cmd=%cmd% --filename="%filename%"
     if not "%extension%"=="" set cmd=%cmd% --extension="%extension%"
     if not "%mime_type%"=="" set cmd=%cmd% --mime-type="%mime_type%"
-    if not "%tags%"=="" set cmd=%cmd% --tags="%tags%"
+    if not "%tags%"=="" set cmd=%cmd% --tag="%tags%"
     if not "%min_size%"=="" set cmd=%cmd% --min-size="%min_size%"
     if not "%max_size%"=="" set cmd=%cmd% --max-size="%max_size%"
     if not "%created_after%"=="" set cmd=%cmd% --created-after="%created_after%"
@@ -172,10 +174,13 @@ goto menu
 :tag
 cls
 echo ===== Quan ly the =====
+echo LUU Y: Truoc khi them/xoa/liet ke the cho file, ban can dang ky file vao database
+echo bang cach su dung chuc nang 2 - Quet va dang ky file tu menu chinh.
+echo.
 echo 1. Them the
 echo 2. Xoa the
 echo 3. Liet ke the
-echo 4. Quay lai
+echo 4. Quay lai menu chinh
 echo.
 
 set /p tag_choice=Chon tuy chon (1-4) 
@@ -183,19 +188,22 @@ set /p db_path=Duong dan co so du lieu (mac dinh ./filemanager.db):
 if "%db_path%"=="" set db_path=./filemanager.db
 
 if "%tag_choice%"=="1" (
-    set /p file_path=Duong dan file 
+    echo LUU Y: File phai duoc dang ky truoc (su dung chuc nang 2 - Quet va dang ky file)
+    set /p file_path=Duong dan file (duong dan day du den file, khong phai thu muc) 
     set /p tags=Cac the can them (phan cach bang dau phay) 
-    python main.py tag --db-path="%db_path%" --add="%tags%" --file="%file_path%"
+    python main.py --db-path="%db_path%" tag --add="%tags%" --file="%file_path%"
 ) else if "%tag_choice%"=="2" (
-    set /p file_path=Duong dan file 
+    echo LUU Y: File phai duoc dang ky truoc (su dung chuc nang 2 - Quet va dang ky file)
+    set /p file_path=Duong dan file (duong dan day du den file, khong phai thu muc) 
     set /p tags=Cac the can xoa (phan cach bang dau phay) 
-    python main.py tag --db-path="%db_path%" --remove="%tags%" --file="%file_path%"
+    python main.py --db-path="%db_path%" tag --remove="%tags%" --file="%file_path%"
 ) else if "%tag_choice%"=="3" (
-    set /p file_path=Duong dan file (de trong de liet ke tat ca) 
+    echo LUU Y: De xem the cua file cu the, file phai duoc dang ky truoc (su dung chuc nang 2 - Quet va dang ky file)
+    set /p file_path=Duong dan file (de trong de liet ke tat ca the) 
     if "%file_path%"=="" (
-        python main.py tag --db-path="%db_path%" --list-all
+        python main.py --db-path="%db_path%" tag --list-all
     ) else (
-        python main.py tag --db-path="%db_path%" --list --file="%file_path%"
+        python main.py --db-path="%db_path%" tag --list --file="%file_path%"
     )
 ) else if "%tag_choice%"=="4" (
     goto menu
@@ -216,7 +224,7 @@ set /p db_path=Duong dan co so du lieu (mac dinh ./filemanager.db):
 if "%db_path%"=="" set db_path=./filemanager.db
 if "%rebuild%"=="" set rebuild=n
 
-set cmd=python main.py index --db-path="%db_path%"
+set cmd=python main.py --db-path="%db_path%" index
 
 if not "%mime_type%"=="" set cmd=%cmd% --mime-type="%mime_type%"
 if /i "%rebuild%"=="y" set cmd=%cmd% --rebuild

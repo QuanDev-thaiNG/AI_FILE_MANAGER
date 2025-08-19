@@ -224,7 +224,7 @@ class CommandHandler:
         for i, file in enumerate(results[:args.limit]):
             print(f"{i+1}. {file['filename']} ({file['size']} bytes)")
             print(f"   Đường dẫn: {file['abs_path']}")
-            print(f"   Ngày tạo: {file['created_at']}")
+            print(f"   Ngày tạo: {file['created_ts']}")
             
             if args.show_tags and self.file_tagger:
                 tags = self.file_tagger.get_file_tags(file['abs_path'])

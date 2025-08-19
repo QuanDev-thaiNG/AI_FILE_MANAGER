@@ -189,18 +189,18 @@ class FileSearcher:
         if by_content:
             # Tìm kiếm theo hash nội dung
             cursor.execute(
-                """SELECT hash, COUNT(*) as count 
+                """SELECT hash_sha256, COUNT(*) as count 
                    FROM files 
-                   WHERE hash IS NOT NULL 
-                   GROUP BY hash 
+                   WHERE hash_sha256 IS NOT NULL 
+                   GROUP BY hash_sha256 
                    HAVING count > 1""")
             
-            duplicate_hashes = [row['hash'] for row in cursor.fetchall()]
+            duplicate_hashes = [row['hash_sha256'] for row in cursor.fetchall()]
             
             duplicate_groups = []
             for file_hash in duplicate_hashes:
                 cursor.execute(
-                    "SELECT * FROM files WHERE hash = ? ORDER BY filename",
+                    "SELECT * FROM files WHERE hash_sha256 = ? ORDER BY filename",
                     (file_hash,))
                 
                 files = [dict(row) for row in cursor.fetchall()]

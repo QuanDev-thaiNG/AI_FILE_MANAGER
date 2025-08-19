@@ -1,0 +1,18 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Nền logo -->
+  <rect width="200" height="60" fill="transparent"/>
+  
+  <!-- Biểu tượng tài liệu -->
+  <rect x="10" y="10" width="30" height="40" fill="#0066cc" rx="3" ry="3"/>
+  <rect x="15" y="15" width="20" height="5" fill="white" rx="1" ry="1"/>
+  <rect x="15" y="25" width="20" height="5" fill="white" rx="1" ry="1"/>
+  <rect x="15" y="35" width="15" height="5" fill="white" rx="1" ry="1"/>
+  
+  <!-- Biểu tượng AI -->
+  <circle cx="60" cy="30" r="15" fill="#4caf50"/>
+  <path d="M55 25 L55 35 M65 25 L65 35 M55 30 L65 30" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- Văn bản -->
+  <text x="85" y="35" font-family="Arial" font-size="18" font-weight="bold" fill="#333333">File Manager</text>
+  <text x="85" y="50" font-family="Arial" font-size="12" fill="#666666">Powered by AI</text>
+</svg>

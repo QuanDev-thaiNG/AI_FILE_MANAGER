@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI File Manager - Quản lý file thông minh với AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="AI File Manager Logo">
+                <h1>AI File Manager</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Tính năng</a></li>
+                    <li><a href="#installation">Cài đặt</a></li>
+                    <li><a href="#usage">Hướng dẫn</a></li>
+                    <li><a href="#download">Tải xuống</a></li>
+                    <li><a href="dashboard.html" class="btn">Quản lý File</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Quản lý và sắp xếp tập tin thông minh với AI</h2>
+                <p>Công cụ mạnh mẽ giúp phân loại, tổ chức và tìm kiếm các tập tin như ảnh, văn bản, video và PDF một cách thông minh.</p>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn">Tải xuống</a>
+                    <a href="#features" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-image.svg" alt="AI File Manager Screenshot">
+            </div>
+        </section>
+
+    <section id="features">
+            <h2 class="section-title">Tính năng chính</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Quét và đăng ký file</h3>
+                    <p>Tự động quét và thu thập metadata từ các tập tin trong thư mục của bạn.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Trích xuất metadata</h3>
+                    <p>Hỗ trợ trích xuất thông tin từ ảnh (EXIF), PDF, video và nhiều định dạng khác.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <h3>Phát hiện trùng lặp</h3>
+                    <p>Tìm và quản lý các tập tin trùng lặp để tiết kiệm không gian lưu trữ.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Quy tắc tổ chức</h3>
+                    <p>Hệ thống quy tắc linh hoạt dựa trên YAML để tự động sắp xếp tập tin.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3>Tìm kiếm nâng cao</h3>
+                    <p>Tìm kiếm theo metadata, nội dung, và tìm kiếm ngữ nghĩa dựa trên vector.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Gắn thẻ thông minh</h3>
+                    <p>Hệ thống gắn thẻ để phân loại và tìm kiếm dễ dàng.</p>
+                </div>
+            </div>
+        </section>
+
+    <section id="installation">
+            <h2 class="section-title">Cài đặt</h2>
+            <div class="installation-content">
+                <div class="requirements">
+                    <h3>Yêu cầu</h3>
+                    <ul>
+                        <li><i class="fab fa-python"></i> Python 3.8 trở lên</li>
+                        <li><i class="fas fa-list"></i> Các thư viện phụ thuộc được liệt kê trong <code>requirements.txt</code></li>
+                        <li><i class="fas fa-film"></i> FFmpeg (cho xử lý video)</li>
+                        <li><i class="fas fa-font"></i> Tesseract OCR (cho OCR)</li>
+                    </ul>
+                </div>
+                <div class="installation-steps">
+                    <h3>Cài đặt từ mã nguồn</h3>
+                    <div class="code-block">
+                        <pre><code># Clone repository
+git clone https://github.com/yourusername/ai-file-manager.git
+cd ai-file-manager
+
+# Cài đặt các thư viện phụ thuộc
+pip install -r requirements.txt
+
+# Khởi tạo cấu hình và database
+python main.py init</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" class="usage">
+        <div class="container">
+            <h2 class="section-title">Hướng dẫn sử dụng</h2>
+            <div class="usage-content">
+                <div class="usage-step">
+                    <h3>1. Khởi tạo</h3>
+                    <div class="code-block">
+                        <pre><code>python main.py init --config-dir ~/.filemanager</code></pre>
+                    </div>
+                    <p>Khởi tạo cấu hình và cơ sở dữ liệu cho ứng dụng.</p>
+                </div>
+                <div class="usage-step">
+                    <h3>2. Quét và đăng ký file</h3>
+                    <div class="code-block">
+                        <pre><code>python main.py ingest /đường/dẫn/đến/thư/mục --recursive</code></pre>
+                    </div>
+                    <p>Quét và đăng ký các tập tin trong thư mục vào cơ sở dữ liệu.</p>
+                </div>
+                <div class="usage-step">
+                    <h3>3. Tìm kiếm file</h3>
+                    <div class="code-block">
+                        <pre><code>python main.py search --tag="quan_trong" --extension="pdf"</code></pre>
+                    </div>
+                    <p>Tìm kiếm các tập tin theo thẻ, phần mở rộng, hoặc các tiêu chí khác.</p>
+                </div>
+                <div class="usage-step">
+                    <h3>4. Sắp xếp file theo quy tắc</h3>
+                    <div class="code-block">
+                        <pre><code>python main.py organize --rules-file=./rules/my_rules.yaml</code></pre>
+                    </div>
+                    <p>Tự động sắp xếp các tập tin theo quy tắc đã định nghĩa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Tải xuống</h2>
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3>Windows</h3>
+                    <a href="#" class="btn btn-download">Tải xuống cho Windows</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Linux</h3>
+                    <a href="#" class="btn btn-download">Tải xuống cho Linux</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3>macOS</h3>
+                    <a href="#" class="btn btn-download">Tải xuống cho macOS</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>Mã nguồn</h3>
+                    <a href="https://github.com/yourusername/ai-file-manager" class="btn btn-download">Xem trên GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.svg" alt="AI File Manager Logo" width="40">
+                    <p>AI File Manager</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="#features">Tính năng</a></li>
+                        <li><a href="#installation">Cài đặt</a></li>
+                        <li><a href="#usage">Hướng dẫn</a></li>
+                        <li><a href="#download">Tải xuống</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Liên hệ</h4>
+                    <p>Email: contact@aifilemanager.com</p>
+                    <p>GitHub: <a href="https://github.com/aifilemanager/ai-file-manager">github.com/aifilemanager</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AI File Manager. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

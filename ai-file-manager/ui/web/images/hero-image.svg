@@ -1,0 +1,72 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Nền -->  
+  <rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Giao diện ứng dụng -->
+  <rect x="50" y="50" width="700" height="500" fill="#ffffff" stroke="#e0e0e0" stroke-width="2" rx="8" ry="8"/>
+  
+  <!-- Thanh tiêu đề -->
+  <rect x="50" y="50" width="700" height="50" fill="#0066cc" rx="8" ry="8"/>
+  <text x="80" y="82" font-family="Arial" font-size="18" fill="white">AI File Manager</text>
+  
+  <!-- Thanh bên trái -->
+  <rect x="50" y="100" width="200" height="450" fill="#f0f4f8" rx="0" ry="0"/>
+  
+  <!-- Menu -->
+  <rect x="70" y="130" width="160" height="40" fill="#e0ebf5" rx="5" ry="5"/>
+  <text x="100" y="155" font-family="Arial" font-size="14" fill="#333">Trang chủ</text>
+  
+  <rect x="70" y="180" width="160" height="40" fill="#0066cc" rx="5" ry="5"/>
+  <text x="100" y="205" font-family="Arial" font-size="14" fill="white">Quản lý file</text>
+  
+  <rect x="70" y="230" width="160" height="40" fill="#e0ebf5" rx="5" ry="5"/>
+  <text x="100" y="255" font-family="Arial" font-size="14" fill="#333">Tìm kiếm</text>
+  
+  <rect x="70" y="280" width="160" height="40" fill="#e0ebf5" rx="5" ry="5"/>
+  <text x="100" y="305" font-family="Arial" font-size="14" fill="#333">Thẻ</text>
+  
+  <rect x="70" y="330" width="160" height="40" fill="#e0ebf5" rx="5" ry="5"/>
+  <text x="100" y="355" font-family="Arial" font-size="14" fill="#333">Cài đặt</text>
+  
+  <!-- Khu vực chính -->
+  <rect x="270" y="120" width="460" height="410" fill="#ffffff" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  
+  <!-- Tiêu đề khu vực chính -->
+  <text x="290" y="150" font-family="Arial" font-size="18" font-weight="bold" fill="#333">Quản lý file</text>
+  
+  <!-- Thanh tìm kiếm -->
+  <rect x="290" y="170" width="420" height="40" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  <text x="310" y="195" font-family="Arial" font-size="14" fill="#999">Tìm kiếm file...</text>
+  
+  <!-- Danh sách file -->
+  <rect x="290" y="230" width="420" height="60" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  <circle cx="320" cy="260" r="15" fill="#0066cc"/>
+  <text x="350" y="255" font-family="Arial" font-size="14" fill="#333">Báo cáo tài chính.pdf</text>
+  <text x="350" y="275" font-family="Arial" font-size="12" fill="#666">2.4 MB - 12/05/2023</text>
+  
+  <rect x="290" y="300" width="420" height="60" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  <circle cx="320" cy="330" r="15" fill="#4caf50"/>
+  <text x="350" y="325" font-family="Arial" font-size="14" fill="#333">Hình ảnh sự kiện.jpg</text>
+  <text x="350" y="345" font-family="Arial" font-size="12" fill="#666">5.7 MB - 10/05/2023</text>
+  
+  <rect x="290" y="370" width="420" height="60" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  <circle cx="320" cy="400" r="15" fill="#ff9800"/>
+  <text x="350" y="395" font-family="Arial" font-size="14" fill="#333">Bản thuyết trình.pptx</text>
+  <text x="350" y="415" font-family="Arial" font-size="12" fill="#666">3.2 MB - 08/05/2023</text>
+  
+  <rect x="290" y="440" width="420" height="60" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1" rx="5" ry="5"/>
+  <circle cx="320" cy="470" r="15" fill="#9c27b0"/>
+  <text x="350" y="465" font-family="Arial" font-size="14" fill="#333">Video hướng dẫn.mp4</text>
+  <text x="350" y="485" font-family="Arial" font-size="12" fill="#666">15.8 MB - 05/05/2023</text>
+  
+  <!-- Biểu tượng thống kê -->
+  <rect x="600" y="520" width="120" height="10" fill="#0066cc" rx="5" ry="5"/>
+  <rect x="600" y="535" width="80" height="10" fill="#4caf50" rx="5" ry="5"/>
+  <rect x="600" y="550" width="60" height="10" fill="#ff9800" rx="5" ry="5"/>
+  <rect x="600" y="565" width="40" height="10" fill="#9c27b0" rx="5" ry="5"/>
+  
+  <text x="580" y="525" font-family="Arial" font-size="10" fill="#666" text-anchor="end">PDF</text>
+  <text x="580" y="540" font-family="Arial" font-size="10" fill="#666" text-anchor="end">Hình ảnh</text>
+  <text x="580" y="555" font-family="Arial" font-size="10" fill="#666" text-anchor="end">Văn bản</text>
+  <text x="580" y="570" font-family="Arial" font-size="10" fill="#666" text-anchor="end">Video</text>
+</svg>

@@ -9,6 +9,7 @@ marshmallow>=3.14.1
 # Image processing
 Pillow>=9.0.0
 exifread>=3.0.0
+imagehash>=4.3.0  # Using imagehash instead of imagededup
 # imagededup>=0.3.0 đã bị loại bỏ vì yêu cầu Microsoft Visual C++ 14.0 hoặc cao hơn
 # Sử dụng các thư viện thay thế như PIL và numpy cho việc so sánh ảnh
 
