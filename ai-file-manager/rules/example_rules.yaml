@@ -1,0 +1,94 @@
+# Ví dụ về quy tắc sắp xếp file
+
+rules:
+  # Quy tắc cho ảnh
+  - name: "Sắp xếp ảnh theo năm và tháng"
+    description: "Di chuyển ảnh vào thư mục theo năm và tháng chụp từ EXIF"
+    if:
+      mimetype: "image/*"
+      exif:
+        has_date: true
+    then:
+      move: "D:/Photos/{exif.year}/{exif.month}/{filename}"
+      tags: ["ảnh", "{exif.year}"]
+
+  - name: "Sắp xếp ảnh không có EXIF"
+    description: "Di chuyển ảnh không có thông tin EXIF vào thư mục riêng"
+    if:
+      mimetype: "image/*"
+      exif:
+        has_date: false
+    then:
+      move: "D:/Photos/Unsorted/{filename}"
+      tags: ["ảnh", "chưa phân loại"]
+
+  # Quy tắc cho tài liệu PDF
+  - name: "Sắp xếp tài liệu PDF"
+    description: "Di chuyển PDF vào thư mục tài liệu theo ngôn ngữ"
+    if:
+      extension: ".pdf"
+    then:
+      move: "D:/Documents/{language}/{filename}"
+      tags: ["tài liệu", "{language}"]
+
+  # Quy tắc cho video
+  - name: "Sắp xếp video"
+    description: "Di chuyển video vào thư mục theo năm"
+    if:
+      mimetype: "video/*"
+    then:
+      move: "D:/Videos/{created.year}/{filename}"
+      tags: ["video", "{created.year}"]
+
+  # Quy tắc cho file văn bản
+  - name: "Sắp xếp file văn bản"
+    description: "Di chuyển file văn bản vào thư mục theo loại"
+    if:
+      mimetype: "text/*"
+    then:
+      move: "D:/Documents/Text/{extension}/{filename}"
+      tags: ["văn bản"]
+
+  # Quy tắc cho file có nội dung cụ thể
+  - name: "Phân loại tài liệu học tập"
+    description: "Phân loại tài liệu học tập dựa trên nội dung"
+    if:
+      content: ["học tập", "bài giảng", "giáo trình", "đại học"]
+    then:
+      move: "D:/Documents/Education/{filename}"
+      tags: ["học tập", "giáo dục"]
+
+  # Quy tắc cho file có kích thước lớn
+  - name: "Đánh dấu file lớn"
+    description: "Đánh dấu các file có kích thước lớn"
+    if:
+      size:
+        min: 100000000  # 100MB
+    then:
+      tags: ["file lớn"]
+
+  # Quy tắc cho file trùng lặp
+  - name: "Đánh dấu file trùng lặp"
+    description: "Đánh dấu các file trùng lặp để xem xét sau"
+    if:
+      is_duplicate: true
+    then:
+      tags: ["trùng lặp"]
+
+  # Quy tắc cho file cũ
+  - name: "Đánh dấu file cũ"
+    description: "Đánh dấu các file không được truy cập trong thời gian dài"
+    if:
+      last_accessed:
+        before: "2022-01-01"
+    then:
+      tags: ["file cũ"]
+
+  # Quy tắc cho file tạm thời
+  - name: "Di chuyển file tạm thời"
+    description: "Di chuyển các file tạm thời vào thư mục riêng"
+    if:
+      filename: ["*.tmp", "~*", "*.bak"]
+    then:
+      move: "D:/Temp/{filename}"
+      tags: ["tạm thời"]

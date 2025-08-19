@@ -1,0 +1,34 @@
+# Core dependencies
+python-magic>=0.4.24
+watchdog>=2.1.6
+pathlib>=1.0.1
+pyyaml>=6.0
+marshmallow>=3.14.1
+# sqlite3 is part of Python standard library
+
+# Image processing
+Pillow>=9.0.0
+exifread>=3.0.0
+# imagededup>=0.3.0 đã bị loại bỏ vì yêu cầu Microsoft Visual C++ 14.0 hoặc cao hơn
+# Sử dụng các thư viện thay thế như PIL và numpy cho việc so sánh ảnh
+
+# PDF processing
+pdfplumber>=0.7.0
+pdf2image>=1.16.0
+
+# Video processing
+ffmpeg-python>=0.2.0
+
+# OCR
+pytesseract>=0.3.8
+langdetect>=1.0.9
+
+# Vector search
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.2  # Use faiss-gpu for GPU support
+numpy>=1.21.0
+
+# CLI
+argparse>=1.4.0
+tqdm>=4.62.3  # For progress bars
+colorama>=0.4.4  # For colored terminal output
